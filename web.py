@@ -22,7 +22,21 @@ if prompt:
     st.session_state["message"].append({"role": "user", "content": prompt})
 
     with st.spinner("思考中..."):
-        time.sleep(2)
+        # 1. 获取流式生成器
         res = st.session_state["rag"].chain.stream({"input": prompt}, config=config.session_config)
-        st.chat_message("assistant").write_stream(res)
-        st.session_state["message"].append({"role": "assistant", "content": res})
+        
+        # 2. 显示流式输出，并拼接完整内容
+        # 创建一个空的容器来显示文字
+        full_response = st.chat_message("assistant").empty()
+        response_content = ""
+        
+        # 遍历生成器，一边显示一边拼接
+        for chunk in res:
+            response_content += chunk
+            full_response.markdown(response_content + "▌") # 加个光标效果
+            
+        # 循环结束后，去掉光标，显示最终结果
+        full_response.markdown(response_content)
+        
+        # 3. 存入历史记录（现在存的是字符串，不是生成器了）
+        st.session_state["message"].append({"role": "assistant", "content": response_content})
