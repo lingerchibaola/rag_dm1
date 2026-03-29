@@ -42,8 +42,8 @@ class FileChatMessageHistory(BaseChatMessageHistory):
 
 
 model = ChatTongyi(
-    model=config.chat_model,
-    dashscope_api_key=config.dashscope_api_key,
+    model="tongyi-xiaomi-analysis-pro",
+    dashscope_api_key="sk-9ed94ef4e7e94168a812998aec056a99",
 )
 
 
