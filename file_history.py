@@ -2,7 +2,7 @@ from langchain_core.messages import message_to_dict, messages_from_dict
 from langchain_core.chat_history import BaseChatMessageHistory
 import os, json
 from langchain_core.runnables.history import RunnableWithMessageHistory
-
+from langchain_community.chat_models import ChatTongyi
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
@@ -41,10 +41,11 @@ class FileChatMessageHistory(BaseChatMessageHistory):
             os.remove(self.file_path)
 
 
-model = ChatOllama(
-    model="qwen3:1.7b",
-    base_url="http://localhost:11434",  # Ollama 默认地址
+model = ChatTongyi(
+    model=config.chat_model,
+    dashscope_api_key=config.dashscope_api_key,
 )
+
 
 prompt_1 = PromptTemplate.from_template(
     "根据对话历史回答。\n对话历史：{chat_history}\n用户问题：{input}\n请回答："
