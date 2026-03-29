@@ -4,7 +4,7 @@ import config_data as config
 import streamlit as st
 
 
-st.title("Rge助手")
+st.title("清梦的Rge助手")
 st.divider()  # 分割线
 
 if "rag" not in st.session_state:
