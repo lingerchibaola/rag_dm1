@@ -52,6 +52,7 @@ class KnowledgeBaseService(object):
             collection_name=config.collection_name,   # 数据库表名
             embedding_function=DashScopeEmbeddings(
                 model="text-embedding-v4"
+                dashscope_api_key="sk-9ed94ef4e7e94168a812998aec056a99"
             ),
             persist_directory=config.persist_directory  # 数据库本地路径
         )
