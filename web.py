@@ -473,7 +473,7 @@ if "rag" not in st.session_state:
 if "message" not in st.session_state:
     st.session_state["message"] = [
         {"role": "assistant",
-         "content": " 欢迎来到Rge小助手！\n\n我是你的专属AI小伙伴，可以帮你：\n 回答各种问题\n 提供创意建议\n 分析上传的文件\n\n有什么我可以帮你的吗？"}
+         "content": " 欢迎来到Rge小助手！\n\n我是你的专属AI小伙伴，可以帮你：\n 回答各种问题\n 提供创意建议\n 分析上传的文件\n\n有什么我可以帮你的吗？上传文件请点击左上角“>>”符号"}
     ]
 if "kb_service" not in st.session_state:
     st.session_state["kb_service"] = KnowledgeBaseService()
