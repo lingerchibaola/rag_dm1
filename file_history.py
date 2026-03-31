@@ -5,6 +5,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_models import ChatTongyi
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+import config_data as config
 
 
 
@@ -40,10 +41,9 @@ class FileChatMessageHistory(BaseChatMessageHistory):
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
 
-
 model = ChatTongyi(
-    model="tongyi-xiaomi-analysis-pro",
-    dashscope_api_key="sk-9ed94ef4e7e94168a812998aec056a99",
+    model=config.chat_model,
+    dashscope_api_key=config.dashscope_api_key,
 )
 
 
