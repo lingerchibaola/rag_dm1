@@ -501,15 +501,7 @@ with st.sidebar:
         accept_multiple_files=False,
         help="支持TXT格式文件，文件大小不限"
     )
-    if st.button("💾 保存对话", use_container_width=True):
-    chat_text = "\n\n".join([f"**{m['role']}**: {m['content']}" for m in st.session_state["message"]])
-    st.download_button(
-        "📥 点击下载对话记录", 
-        chat_text, 
-        f"chat_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md", 
-        "text/markdown",
-        use_container_width=True
-    )
+    
 
     if uploader_file is not None:
         file_name = uploader_file.name
