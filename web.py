@@ -9,8 +9,8 @@ from datetime import datetime
 
 # 页面配置
 st.set_page_config(
-    page_title="🤗 Rge小助手",
-    page_icon="🌸",
+    page_title=" Rge小助手",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
