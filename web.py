@@ -139,8 +139,8 @@ def set_custom_background():
                     img_type = uploaded_bg.type.split('/')[-1]
 
                     # 透明度调节
-                    opacity = st.slider("遮罩透明度", 0.3, 1.0, 0.7, 0.05, key="custom_opacity")
-                    blur = st.slider("背景模糊度", 0, 20, 10, key="custom_blur")
+                    opacity = st.slider("遮罩透明度", 0.2, 1.0, 0.2, 0.05, key="custom_opacity")
+                    blur = st.slider("背景模糊度", 0, 20, 0, key="custom_blur")
 
                     # 应用背景
                     st.markdown(
